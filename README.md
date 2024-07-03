@@ -7,16 +7,17 @@ Developed a site to sell products from the hause of casa do canto.
 🔐 Kinde Authentication with MFA
 📧 Passwordless Auth
 🔑 OAuth (Google and GitHub)
-💰Payments using Stripe 
+💰Payments using Stripe
 🪝 Implementation of Stripe Webhooks
-💿 Neon Database
+💿 Neon Database (Postgres)
 💨 Prisma Orm
 🚀 Upstash Redis for Cart functionality
 📈 Recharts for displaying Charts
 ✅ Server Validation using Zod and Conform
-🗂️ File Upload with Uploadthing
-🎨 Styling with Tailwindcss and Shadcn UI
-😶‍🌫️ Deployment to vercel
+🗂️ File Upload with Uploadthing (S3)
+🎨 Styling with Tailwindcss and Shadcn UI (Tailwind)
+😶‍🌫️ Deployment to vercel (Vercel)
+
 
 # Resources used:
 t3.gg: https://t3.gg
