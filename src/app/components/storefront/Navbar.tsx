@@ -57,7 +57,7 @@ export async function Navbar() {
         ) : (
           <div className="hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-2">
             <Button variant="ghost" asChild>
-              <LoginLink>Sign in</LoginLink>
+              <LoginLink>Entrar</LoginLink>
             </Button>
             <span className="h-6 w-px bg-gray-200"></span>
             <Button variant="ghost" asChild>

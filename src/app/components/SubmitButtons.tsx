@@ -46,7 +46,7 @@ export function ShoppingBagButton() {
         </Button>
       ) : (
         <Button size="lg" className="w-full mt-5" type="submit">
-          <ShoppingBag className="mr-4 h-5 w-5" /> Add to Cart
+          <ShoppingBag className="mr-4 h-5 w-5" /> Para o Carrinho
         </Button>
       )}
     </>

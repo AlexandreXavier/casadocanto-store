@@ -45,7 +45,7 @@ export default function BannerRoute() {
             <ChevronLeft className="w-4 h-4" />
           </Link>
         </Button>
-        <h1 className="text-xl font-semibold tracking-tight">New Banner</h1>
+        <h1 className="text-xl font-semibold tracking-tight">Novo Banner</h1>
       </div>
 
       <Card className="mt-5">
@@ -68,7 +68,7 @@ export default function BannerRoute() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <Label>Image</Label>
+              <Label>Imagem</Label>
               <input
                 type="hidden"
                 value={image}
@@ -101,7 +101,7 @@ export default function BannerRoute() {
           </div>
         </CardContent>
         <CardFooter>
-          <SubmitButton text="Create Banner" />
+          <SubmitButton text="Criar Banner" />
         </CardFooter>
       </Card>
     </form>

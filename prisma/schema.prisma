@@ -61,7 +61,7 @@ enum ProductStatus {
 }
 
 enum Category {
-  men
-  women
-  kids
+  casa
+  yoga
+  horta
 }

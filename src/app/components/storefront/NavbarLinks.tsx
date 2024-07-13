@@ -7,23 +7,18 @@ import { usePathname } from "next/navigation";
 export const navbarLinks = [
   {
     id: 0,
-    name: "Todos",
-    href: "/products/all",
+    name: "Casa",
+    href: "/products/casa",
   },
   {
     id: 1,
-    name: "Estadia",
-    href: "/products/men",
+    name: "Yoga",
+    href: "/products/yoga",
   },
   {
     id: 2,
-    name: "Yoga",
-    href: "/products/women",
-  },
-  {
-    id: 3,
-    name: "Compotas",
-    href: "/products/kids",
+    name: "Horta",
+    href: "/products/horta",
   },
 ];
 

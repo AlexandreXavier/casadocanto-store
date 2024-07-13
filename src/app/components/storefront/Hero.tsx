@@ -28,7 +28,7 @@ export async function Hero() {
           <CarouselItem key={item.id}>
             <div className="relative h-[60vh] lg:h-[80vh]">
               <Image
-                alt="Banner Image"
+                alt="Banner Imagem"
                 src={item.imageString}
                 fill
                 className="object-cover w-full h-full rounded-xl"

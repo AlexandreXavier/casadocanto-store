@@ -28,7 +28,7 @@ async function getData() {
 export function FeaturedProducts() {
   return (
     <>
-      <h2 className="text-2xl font-extrabold tracking-tight">Featured Items</h2>
+      <h2 className="text-2xl font-extrabold tracking-tight">Caracteristicas </h2>
       <Suspense fallback={<LoadingRows />}>
         <LoadFeaturedproducts />
       </Suspense>

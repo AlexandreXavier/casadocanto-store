@@ -45,7 +45,7 @@ export async function DashboardStats() {
         </CardHeader>
         <CardContent>
           <p className="text-2xl font-bold">
-            ${new Intl.NumberFormat("de-DE").format(totalAmount / 100)}
+            €{new Intl.NumberFormat("de-DE").format(totalAmount / 100)}
           </p>
           <p className="text-xs text-muted-foreground">Base 100 Cobrados</p>
         </CardContent>

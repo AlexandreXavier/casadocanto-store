@@ -19,7 +19,7 @@ export async function GET() {
   const user = await getUser();
 
   if (!user ) {
-    throw new Error("Something went wrong...");
+    throw new Error("Algo deu errado...");
   }
 
 

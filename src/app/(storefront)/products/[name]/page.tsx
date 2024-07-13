@@ -1,7 +1,7 @@
-import { ProductCard } from "@/app/components/storefront/ProductCard";
 import {db} from "@/server/db";
 import { notFound } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
+import { ProductCard } from "@/app/components/storefront/ProductCard";
 
 async function getData(productCategory: string) {
   switch (productCategory) {
@@ -20,15 +20,15 @@ async function getData(productCategory: string) {
       });
 
       return {
-        title: "All Products",
+        title: "Todos os Produtos",
         data: data,
       };
     }
-    case "men": {
+    case "casa": {
       const data = await db.product.findMany({
         where: {
           status: "published",
-          category: "men",
+          category: "casa",
         },
         select: {
           name: true,
@@ -40,15 +40,15 @@ async function getData(productCategory: string) {
       });
 
       return {
-        title: "Products for Men",
+        title: "Casa",
         data: data,
       };
     }
-    case "women": {
+    case "yoga": {
       const data = await db.product.findMany({
         where: {
           status: "published",
-          category: "women",
+          category: "yoga",
         },
         select: {
           name: true,
@@ -60,15 +60,15 @@ async function getData(productCategory: string) {
       });
 
       return {
-        title: "Products to Women",
+        title: "Yoga",
         data: data,
       };
     }
-    case "kids": {
+    case "horta": {
       const data = await db.product.findMany({
         where: {
           status: "published",
-          category: "kids",
+          category: "horta",
         },
         select: {
           name: true,
@@ -80,7 +80,7 @@ async function getData(productCategory: string) {
       });
 
       return {
-        title: "Products for Kids",
+        title: "Horta",
         data: data,
       };
     }

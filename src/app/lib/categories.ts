@@ -1,17 +1,17 @@
 export const categories = [
   {
     id: 0,
-    title: "Men",
-    name: "men",
+    title: "Casa",
+    name: "casa",
   },
   {
     id: 1,
-    title: "Women",
-    name: "women",
+    title: "Yoga",
+    name: "yoga",
   },
   {
     id: 3,
-    title: "Kids",
-    name: "kids",
+    title: "Horta",
+    name: "horta",
   },
 ];

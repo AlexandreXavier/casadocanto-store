@@ -30,7 +30,7 @@ export function ProductCard({ item }: iAppProps) {
               <div className="relative h-[330px]">
                 <Image
                   src={item}
-                  alt="Product Image"
+                  alt="Imagem do Produto"
                   fill
                   className="object-cover object-center w-full h-full rounded-lg"
                 />
@@ -45,7 +45,7 @@ export function ProductCard({ item }: iAppProps) {
       <div className="flex justify-between items-center mt-2">
         <h1 className="font-semibold text-xl">{item.name}</h1>
         <h3 className="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/10">
-          ${item.price}
+          €{item.price}
         </h3>
       </div>
       <p className="text-gray-600 text-sm mt-2 line-clamp-2">

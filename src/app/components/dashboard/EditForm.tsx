@@ -80,7 +80,7 @@ export function EditForm({ data }: iAppProps) {
         <CardHeader>
           <CardTitle>Product Details</CardTitle>
           <CardDescription>
-            In this form you can update your product
+            Nesta forma pode atualizar seu produto
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -122,7 +122,7 @@ export function EditForm({ data }: iAppProps) {
             </div>
 
             <div className="flex flex-col gap-3">
-              <Label>Featured Product</Label>
+              <Label>Caracteristicas</Label>
               <Switch
                 key={fields.isFeatured.key}
                 name={fields.isFeatured.name}
@@ -132,7 +132,7 @@ export function EditForm({ data }: iAppProps) {
             </div>
 
             <div className="flex flex-col gap-3">
-              <Label>Status</Label>
+              <Label>Estado</Label>
               <Select
                 key={fields.status.key}
                 name={fields.status.name}
@@ -209,7 +209,7 @@ export function EditForm({ data }: iAppProps) {
                     setImages(res.map((r) => r.url));
                   }}
                   onUploadError={() => {
-                    alert("Something went wrong");
+                    alert("Algo deu errado");
                   }}
                 />
               )}
@@ -219,7 +219,7 @@ export function EditForm({ data }: iAppProps) {
           </div>
         </CardContent>
         <CardFooter>
-          <SubmitButton text="Edit Product" />
+          <SubmitButton text="Editar Produto" />
         </CardFooter>
       </Card>
     </form>

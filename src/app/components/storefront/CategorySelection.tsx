@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import all from "../../../../public/all.jpeg";
-import men from "../../../../public/men.jpeg";
-import women from "../../../../public/women.jpeg";
+import casa from "../../../../public/casa.jpeg";
+import yoga from "../../../../public/yoga.jpeg";
 
 export function CategoriesSelection() {
   return (
@@ -24,7 +24,7 @@ export function CategoriesSelection() {
         <div className="group aspect-w-2 aspect-h-1 rounded-xl overflow-hidden sm:aspect-w-1 sm:row-span-2">
           <Image
             src={all}
-            alt="All Products Image"
+            alt="Todos os Produtos, Image"
             className="object-cover object-center "
           />
           <div className="bg-gradient-to-b from-transparent to-black opacity-55" />
@@ -38,13 +38,13 @@ export function CategoriesSelection() {
 
         <div className="group aspect-w-2 aspect-h-1 rounded-lg overflow-hidden sm:relative sm:aspect-none sm:h-full">
           <Image
-            src={men}
+            src={yoga}
             alt="Products for men Image"
             className="object-bottom object-cover sm:absolute sm:inset-0 sm:w-full sm:h-full"
           />
           <div className="bg-gradient-to-b from-transparent to-black opacity-55 sm:absolute sm:inset-0" />
           <div className="p-6 flex items-end sm:absolute sm:inset-0">
-            <Link href="/products/men">
+            <Link href="/products/yoga">
               <h3 className="text-white font-semibold">Aulas de Yoga</h3>
               <p className="mt-1 text-sm text-white">Comprar Agora</p>
             </Link>
@@ -53,13 +53,13 @@ export function CategoriesSelection() {
 
         <div className="group aspect-w-2 aspect-h-1 rounded-lg overflow-hidden sm:relative sm:aspect-none sm:h-full">
           <Image
-            src={women}
+            src={casa}
             alt="Women product image"
             className="object-bottom object-cover sm:absolute sm:inset-0 sm:w-full sm:h-full"
           />
           <div className="bg-gradient-to-b from-transparent to-black opacity-55 sm:absolute sm:inset-0" />
           <div className="p-6 flex items-end sm:absolute sm:inset-0">
-            <Link href="/products/women">
+            <Link href="/products/casa">
               <h3 className="text-white font-semibold">Estadia na Casa</h3>
               <p className="mt-1 text-sm text-white">Comprar Agora</p>
             </Link>

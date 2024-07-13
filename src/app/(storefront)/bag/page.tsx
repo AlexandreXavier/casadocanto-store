@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { checkOut, delItem } from "@/app/actions";
 import { ChceckoutButton, DeleteItem } from "@/app/components/SubmitButtons";
 import { Cart } from "@/app/lib/interfaces";
@@ -5,10 +7,7 @@ import { redis } from "@/app/lib/redis";
 import { Button } from "@/components/ui/button";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ShoppingBag } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 import { unstable_noStore as noStore } from "next/cache";
-
 import { redirect } from "next/navigation";
 
 export default async function BagRoute() {
@@ -37,15 +36,14 @@ export default async function BagRoute() {
           </div>
 
           <h2 className="mt-6 text-xl font-semibold">
-            You dont have any products in your Bag
+            Não tem produtos na Cesta
           </h2>
           <p className="mb-8 mt-2 text-center text-sm leading-6 text-muted-foreground max-w-sm mx-auto">
-            You currently dont have any products in your shopping bag. Please
-            add some so that you can see them right here.
+            Não tem produtos na cesta. Por favor, adicione alguns para que possa ver aqui.
           </p>
 
           <Button asChild>
-            <Link href="/">Shop Now!</Link>
+            <Link href="/">Comprar Agora!</Link>
           </Button>
         </div>
       ) : (
@@ -57,7 +55,7 @@ export default async function BagRoute() {
                   className="rounded-md object-cover"
                   fill
                   src={item.imageString}
-                  alt="Product image"
+                  alt="Imagem do Produto"
                 />
               </div>
               <div className="ml-5 flex justify-between w-full font-medium">
@@ -79,7 +77,7 @@ export default async function BagRoute() {
           <div className="mt-10">
             <div className="flex items-center justify-between font-medium">
               <p>Subtotal:</p>
-              <p>${new Intl.NumberFormat("en-US").format(totalPrice)}</p>
+              <p>€{new Intl.NumberFormat("de-DE").format(totalPrice)}</p>
             </div>
 
             <form action={checkOut}>

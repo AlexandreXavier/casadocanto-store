@@ -90,7 +90,7 @@ export async function deleteProduct(formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user.email !== "jan@alenix.de") {
+  if (!user || user.email !== "jalexandre.xavier@gmail.com") {
     return redirect("/");
   }
 
@@ -170,7 +170,7 @@ export async function addItem(productId: string) {
   });
 
   if (!selectedProduct) {
-    throw new Error("No product with this id");
+    throw new Error("Nao existe produto com este id");
   }
   let myCart = {} as Cart;
 
@@ -254,7 +254,7 @@ export async function checkOut() {
     const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] =
       cart.items.map((item) => ({
         price_data: {
-          currency: "usd",
+          currency: "eur",
           unit_amount: item.price * 100,
           product_data: {
             name: item.name,
