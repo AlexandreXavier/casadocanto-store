@@ -27,6 +27,7 @@ import { MoreHorizontal, PlusCircle, UserIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { unstable_noStore as noStore } from "next/cache";
+import casadocantoLogo from "../../../../public/logo.svg";
 
 async function getData() {
   const data = await db.product.findMany({
@@ -76,7 +77,7 @@ export default async function ProductsRoute() {
                   <TableCell>
                     <Image
                       alt="Product Image"
-                      src={item.images[0]}
+                      src={item.images[0]|| casadocantoLogo}
                       height={64}
                       width={64}
                       className="rounded-md object-cover h-16 w-16"

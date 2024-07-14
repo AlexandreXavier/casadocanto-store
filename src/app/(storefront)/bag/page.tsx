@@ -9,12 +9,13 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ShoppingBag } from "lucide-react";
 import { unstable_noStore as noStore } from "next/cache";
 import { redirect } from "next/navigation";
+import casadocantoLogo from "../../../../public/logo.svg";
 
 export default async function BagRoute() {
+
   noStore();
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-
   if (!user) {
     redirect("/");
   }
@@ -36,10 +37,10 @@ export default async function BagRoute() {
           </div>
 
           <h2 className="mt-6 text-xl font-semibold">
-            Não tem produtos na Cesta
+            Não tem produtos no seu Cesta
           </h2>
           <p className="mb-8 mt-2 text-center text-sm leading-6 text-muted-foreground max-w-sm mx-auto">
-            Não tem produtos na cesta. Por favor, adicione alguns para que possa ver aqui.
+            Nao tem produtos no seu Cesta. Por favor, adicione alguns para que possa ver aqui.
           </p>
 
           <Button asChild>
@@ -54,8 +55,8 @@ export default async function BagRoute() {
                 <Image
                   className="rounded-md object-cover"
                   fill
-                  src={item.imageString}
-                  alt="Imagem do Produto"
+                  src={casadocantoLogo}
+                  alt="Product image"
                 />
               </div>
               <div className="ml-5 flex justify-between w-full font-medium">
@@ -63,7 +64,7 @@ export default async function BagRoute() {
                 <div className="flex flex-col h-full justify-between">
                   <div className="flex items-center gap-x-2">
                     <p>{item.quantity} x</p>
-                    <p>${item.price}</p>
+                    <p>€{item.price}</p>
                   </div>
 
                   <form action={delItem} className="text-end">

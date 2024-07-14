@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import casadocantoLogo from "../../../../public/logo.svg";
 
 interface iAppProps {
   images: string[];
@@ -35,7 +36,7 @@ export function ImageSlider({ images }: iAppProps) {
         <Image
           width={600}
           height={600}
-          src={images[mainImageIndex]}
+          src={images[mainImageIndex] || casadocantoLogo}
           alt="Product image"
           className="object-cover w-[600px] h-[600px]"
         />

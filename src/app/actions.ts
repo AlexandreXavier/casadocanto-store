@@ -1,16 +1,15 @@
 "use server";
-
+import {db} from "@/server/db";
+import Stripe from "stripe";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { parseWithZod } from "@conform-to/zod";
 import { bannerSchema,productSchema } from "@/app/lib/zodSchemas";
-import {db} from "@/server/db";
 import { redis } from "./lib/redis";
 import { Cart } from "./lib/interfaces";
 import { revalidatePath } from "next/cache";
-
 import { stripe } from "./lib/stripe";
-import Stripe from "stripe";
+
 
 export async function createProduct(prevState: unknown, formData: FormData) {
   const { getUser } = getKindeServerSession();
@@ -146,7 +145,6 @@ export async function deleteBanner(formData: FormData) {
   redirect("/dashboard/banner");
 }
 
-
 export async function addItem(productId: string) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
@@ -170,7 +168,7 @@ export async function addItem(productId: string) {
   });
 
   if (!selectedProduct) {
-    throw new Error("Nao existe produto com este id");
+    throw new Error("No product with this id");
   }
   let myCart = {} as Cart;
 
@@ -181,7 +179,7 @@ export async function addItem(productId: string) {
         {
           price: selectedProduct.price,
           id: selectedProduct.id,
-          imageString: selectedProduct.images[0],
+          //imageString: selectedProduct.images[0],
           name: selectedProduct.name,
           quantity: 1,
         },
@@ -202,7 +200,7 @@ export async function addItem(productId: string) {
     if (!itemFound) {
       myCart.items.push({
         id: selectedProduct.id,
-        imageString: selectedProduct.images[0],
+        //imageString: selectedProduct.images[0],
         name: selectedProduct.name,
         price: selectedProduct.price,
         quantity: 1,
@@ -247,18 +245,16 @@ export async function checkOut() {
     return redirect("/");
   }
 
-  let cart: Cart | null = await redis.get(`cart-${user.id}`);
+  let cart: Cart | null = await redis.get(`cart-${user.id}`) as Cart;
 
   if (cart && cart.items) {
-
     const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] =
       cart.items.map((item) => ({
         price_data: {
-          currency: "eur",
-          unit_amount: item.price * 100,
+          currency: "usd",
+          unit_amount: item.price * 100, // to convert into cents
           product_data: {
             name: item.name,
-            images: [item.imageString],
           },
         },
         quantity: item.quantity,
@@ -283,3 +279,4 @@ export async function checkOut() {
     return redirect(session.url as string);
   }
 }
+

@@ -26,12 +26,11 @@ export async function Navbar() {
     <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
       <div className="flex items-center">
         <Link href="/">
-          <Image
-                    src={casadocantoLogo}
-                    width={119}
-                    height={32}
-                    alt="CasadoCanto Logo"
-                  />
+          <Image src={casadocantoLogo}
+                width={119}
+                height={32}
+                alt="Casadocanto Logo"
+          />
         </Link>
         <NavbarLinks />
       </div>

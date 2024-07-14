@@ -87,7 +87,13 @@ export default function BannerRoute() {
               ) : (
                 <UploadDropzone
                   onClientUploadComplete={(res) => {
-                    setImages(res[0].url);
+                    //setImages(res[0].url);
+                    const imageUrl = res?.[0]?.url;
+                    if (imageUrl) {
+                        setImages(imageUrl);
+                    } else {
+                        console.error("Upload result is undefined or does not contain a URL.");
+                    }
                   }}
                   onUploadError={() => {
                     alert("Algo deu errado no Upload");
