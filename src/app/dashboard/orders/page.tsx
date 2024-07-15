@@ -46,7 +46,7 @@ export default async function OrdersPage() {
     <Card>
       <CardHeader className="px-7">
         <CardTitle>Encomendas</CardTitle>
-        <CardDescription>Ordens recentesda sua casa</CardDescription>
+        <CardDescription>Ordens recentes</CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
@@ -74,7 +74,7 @@ export default async function OrdersPage() {
                   {new Intl.DateTimeFormat("pt-PT").format(item.createdAt)}
                 </TableCell>
                 <TableCell className="text-right">
-                  ${new Intl.NumberFormat("pt-PT").format(item.amount / 100)}
+                  €{new Intl.NumberFormat("pt-PT").format(item.amount / 100)}
                 </TableCell>
               </TableRow>
             ))}

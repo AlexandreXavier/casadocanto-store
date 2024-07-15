@@ -266,11 +266,11 @@ export async function checkOut() {
       success_url:
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/payment/success"
-          : "https://casadocanto.store/payment/success",
+          : "https://casadocanto-store.vercel.app/payment/success",
       cancel_url:
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/payment/cancel"
-          : "https://casadocanto.store/payment/cancel",
+          : "https://casadocanto-store.vercel.app/payment/cancel",
       metadata: {
         userId: user.id,
       },
