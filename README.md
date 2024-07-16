@@ -50,5 +50,5 @@ Developed a site to sell products from the hause of casa do canto.
 - [x] Create Categories Route
 - [x] Create Shopping Cart
 - [x] Setup Stripe
-- [] Deploy to Vercel
+- [x] Deploy to Vercel
 - [] Outro

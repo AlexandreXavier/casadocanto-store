@@ -4,7 +4,7 @@ import { NavbarLinks } from "./NavbarLinks";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { ShoppingBagIcon } from "lucide-react";
 import { UserDropdown } from "./UserDropdown";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   LoginLink,
   RegisterLink,
@@ -17,6 +17,7 @@ import casadocantoLogo from "../../../../public/logo.svg";
 export async function Navbar() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+  const isAdmin = user?.email == process.env.ADMIN_EMAIL;
 
   const cart: Cart | null = await redis.get(`cart-${user?.id}`);
 
@@ -38,6 +39,17 @@ export async function Navbar() {
       <div className="flex items-center">
         {user ? (
           <>
+           {isAdmin ? (
+                  <Link
+                    href='/dashboard'
+                    className={buttonVariants({
+                      size: 'lg',
+                      variant: 'ghost',
+                    })}
+                  >
+                    Quadro ✨
+                  </Link>
+                ) : null}
             <Link href="/bag" className="group p-2 flex items-center mr-2">
               <ShoppingBagIcon className="h-6 w-6 text-gray-400 group-hover:text-gray-500" />
               <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
