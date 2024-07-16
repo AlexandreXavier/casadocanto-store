@@ -6,6 +6,8 @@ import { ImageSlider } from "@/app/components/storefront/ImageSlider";
 import { StarIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
+import Calendar from "@/app/components/storefront/Calendar";
+
 
 async function getData(productId: string) {
   const data = await db.product.findUnique({
@@ -53,6 +55,8 @@ export default async function ProductIdRoute({
             <StarIcon className="h-4 w-4 text-yellow-500 fill-yellow-500" />
           </div>
           <p className="text-base text-gray-700 mt-6">{data.description}</p>
+
+          <Calendar/>
 
           <form action={addProducttoShoppingCart}>
             <ShoppingBagButton />

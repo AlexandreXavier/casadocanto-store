@@ -1,9 +1,8 @@
 "use client";
-
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 import casadocantoLogo from "../../../../public/logo.svg";
 

@@ -251,7 +251,7 @@ export async function checkOut() {
     const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] =
       cart.items.map((item) => ({
         price_data: {
-          currency: "usd",
+          currency: "eur",
           unit_amount: item.price * 100, // to convert into cents
           product_data: {
             name: item.name,
