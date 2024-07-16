@@ -4,6 +4,7 @@ import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { Inter } from "next/font/google";
+import { CSPostHogProvider } from './providers'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,11 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    <CSPostHogProvider>
     <html lang="en" className={`${GeistSans.variable}`}>
       <body className={inter.className}>
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         {children}
       </body>
     </html>
+    </CSPostHogProvider>
   );
 }
