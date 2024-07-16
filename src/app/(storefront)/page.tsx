@@ -8,7 +8,7 @@ export default function IndexPage() {
     <div>
       <Hero />
       <CategoriesSelection />
-      <FeaturedProducts />
+      {/* <FeaturedProducts /> */}
     </div>
   );
 }

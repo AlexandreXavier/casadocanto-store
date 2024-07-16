@@ -24,6 +24,7 @@ export async function Navbar() {
   const total = cart?.items.reduce((sum, item) => sum + item.quantity, 0) || 0;
 
   return (
+    <div className="sticky top-0 z-50">
     <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
       <div className="flex items-center">
         <Link href="/">
@@ -67,16 +68,17 @@ export async function Navbar() {
           </>
         ) : (
           <div className="hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-2">
-            <Button variant="ghost" asChild>
-              <LoginLink>Entrar</LoginLink>
+            <Button variant="link" asChild>
+              <LoginLink className=" text-xl">Entrar</LoginLink>
             </Button>
             <span className="h-6 w-px bg-gray-200"></span>
-            <Button variant="ghost" asChild>
-              <RegisterLink>Criar Conta</RegisterLink>
+            <Button variant="link" asChild>
+              <RegisterLink >Criar Conta</RegisterLink>
             </Button>
           </div>
         )}
       </div>
     </nav>
+    </div>
   );
 }

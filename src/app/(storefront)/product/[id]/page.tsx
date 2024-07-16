@@ -54,10 +54,18 @@ export default async function ProductIdRoute({
           <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">
             {data.name}
           </h1>
-          <p className="text-3xl mt-2 text-gray-900">€{data.price}</p>
+
+          {isRoom ? (
+            <p className="text-3xl mt-2 text-gray-900">
+              €{data.price} - <span className="text-red-500">por dia</span>
+            </p>
+          ) : ( <p className="text-3xl mt-2 text-gray-900">
+            €{data.price}
+          </p>)}
+
+
 
           <div className="mt-11 flex items-center gap-1">
-
           </div>
           
           <div className='mb-11'>
