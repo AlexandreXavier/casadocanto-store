@@ -5,14 +5,14 @@ import InstaIcon from "@/app/components/shared/icons/instagram";
 
 const navigation = {
   product: [
-    { name: "Casa de Ferias", href: "/" },
+    { name: "Casa de Ferias", href: "https://casadoferias.info" },
     { name: "Aulas de Yoga", href: "/aulas" }
   ],
   resources: [
     { name: "Privacy Policy EU", href: "https://www.termsfeed.com/live/f636382a-1b4b-43de-8cbc-b9dbf4a50aaf" },
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
-    { name: "Blog", href: "/" },
+    { name: "Blog", href: "https://xani.pt" },
   ],
   mapas: [
     { name: "Casa do Canto", href: "/mapas" },
