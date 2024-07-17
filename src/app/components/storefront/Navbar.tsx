@@ -67,14 +67,14 @@ export async function Navbar() {
             />
           </>
         ) : (
-          <div className="hidden md:flex md:flex-1 md:items-center md:justify-end md:space-x-2">
+          <div className="sm:block ">
             <Button variant="link" asChild>
               <LoginLink className=" text-xl">Entrar</LoginLink>
             </Button>
-            <span className="h-6 w-px bg-gray-200"></span>
+            {/* <span className="h-6 w-px bg-gray-200"></span>
             <Button variant="link" asChild>
               <RegisterLink >Criar Conta</RegisterLink>
-            </Button>
+            </Button> */}
           </div>
         )}
       </div>

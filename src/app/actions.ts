@@ -1,14 +1,15 @@
 "use server";
 import {db} from "@/server/db";
-import Stripe from "stripe";
+import type Stripe from "stripe";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { parseWithZod } from "@conform-to/zod";
 import { bannerSchema,productSchema } from "@/app/lib/zodSchemas";
 import { redis } from "./lib/redis";
-import { Cart } from "./lib/interfaces";
+import { type Cart } from "./lib/interfaces";
 import { revalidatePath } from "next/cache";
 import { stripe } from "./lib/stripe";
+import casadocantoLogo from "../../../../public/logo.svg";
 
 
 export async function createProduct(prevState: unknown, formData: FormData) {
@@ -148,12 +149,13 @@ export async function deleteBanner(formData: FormData) {
 export async function addItem(productId: string) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-
   if (!user) {
     return redirect("/");
   }
 
-  let cart: Cart | null = await redis.get(`cart-${user.id}`);
+  //card
+  const cart: Cart | null = await redis.get(`cart-${user.id}`);
+  const total = cart?.items?.length;
 
   const selectedProduct = await db.product.findUnique({
     select: {
@@ -172,14 +174,14 @@ export async function addItem(productId: string) {
   }
   let myCart = {} as Cart;
 
-  if (!cart || !cart.items) {
+  if (!total || !cart.items) {
     myCart = {
       userId: user.id,
       items: [
         {
           price: selectedProduct.price,
           id: selectedProduct.id,
-          //imageString: selectedProduct.images[0],
+          imageString: selectedProduct.images[0]?? "../../../../public/logo.svg",
           name: selectedProduct.name,
           quantity: 1,
         },
@@ -200,7 +202,7 @@ export async function addItem(productId: string) {
     if (!itemFound) {
       myCart.items.push({
         id: selectedProduct.id,
-        //imageString: selectedProduct.images[0],
+        imageString: selectedProduct.images[0]?? "../../../../public/logo.svg",
         name: selectedProduct.name,
         price: selectedProduct.price,
         quantity: 1,
@@ -223,9 +225,10 @@ export async function delItem(formData: FormData) {
 
   const productId = formData.get("productId");
 
-  let cart: Cart | null = await redis.get(`cart-${user.id}`);
+  const cart: Cart | null = await redis.get(`cart-${user.id}`);
+  const total = cart?.items?.length;
 
-  if (cart && cart.items) {
+  if (total && cart.items) {
     const updateCart: Cart = {
       userId: user.id,
       items: cart.items.filter((item) => item.id !== productId),
@@ -245,9 +248,11 @@ export async function checkOut() {
     return redirect("/");
   }
 
-  let cart: Cart | null = await redis.get(`cart-${user.id}`) as Cart;
+  const cart: Cart | null = await redis.get(`cart-${user.id}`);
+  //const cart: Cart | null = await redis.get(`cart-${user.id}`) as Cart;
+  const total = cart?.items?.length;
 
-  if (cart && cart.items) {
+  if (total && cart.items) {
     const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] =
       cart.items.map((item) => ({
         price_data: {

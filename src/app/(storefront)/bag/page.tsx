@@ -21,6 +21,7 @@ export default async function BagRoute() {
   }
 
   const cart: Cart | null = await redis.get(`cart-${user.id}`);
+  const valor=cart?.items?.length
 
   let totalPrice = 0;
 
@@ -30,7 +31,7 @@ export default async function BagRoute() {
 
   return (
     <div className="max-w-2xl mx-auto mt-10 min-h-[55vh]">
-      {!cart || !cart.items ? (
+      {!valor || !cart.items ? (
         <div className="flex min-h-[400px] flex-col items-center justify-center rounded-lg border border-dashed p-8 text-center mt-20">
           <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
             <ShoppingBag className="w-10 h-10 text-primary" />
@@ -55,7 +56,7 @@ export default async function BagRoute() {
                 <Image
                   className="rounded-md object-cover"
                   fill
-                  src={casadocantoLogo}
+                  src={item.imageString??"../../../../public/logo.svg"}
                   alt="Product image"
                 />
               </div>
