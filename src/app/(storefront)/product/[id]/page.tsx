@@ -1,10 +1,8 @@
 import {db} from "@/server/db";
 import { addItem } from "@/app/actions";
 import { ShoppingBagButton } from "@/app/components/SubmitButtons";
-import { FeaturedProducts } from "@/app/components/storefront/FeaturedProducts";
 import RoomReview from "@/app/components/storefront/RoomReview";
 import { ImageSlider } from "@/app/components/storefront/ImageSlider";
-import { StarIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
 import { MdOutlineCleaningServices } from 'react-icons/md';
