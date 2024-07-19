@@ -5,7 +5,7 @@ import InstaIcon from "@/app/components/shared/icons/instagram";
 
 const navigation = {
   product: [
-    { name: "Casa de Ferias", href: "https://casadoferias.info" },
+    { name: "Casa de Ferias", href: "https://casadocanto.info" },
     { name: "Aulas de Yoga", href: "/aulas" }
   ],
   resources: [
