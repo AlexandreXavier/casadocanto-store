@@ -12,6 +12,7 @@ const config = {
             protocol: "https",
             hostname: "utfs.io",
             port: "",
+            pathname: "/dhjx4yl3ai/files/**",
           },
         ],
       },
